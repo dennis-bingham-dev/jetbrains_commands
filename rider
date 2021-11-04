@@ -1,0 +1,34 @@
+#!/bin/sh
+
+# if you are getting these errors on a mac readlink: illegal option -- f usage: readlink [-n] [file ...]
+
+# install brew if you haven't already
+
+# Then do this
+# brew install coreutils
+# ln -s /usr/local/bin/greadlink /usr/bin/readlink
+# Using this: `ln -s /usr/local/bin/greadlink /usr/bin/readlink` you might get `Operation not permitted` due to SIP rules so just copy to the local path instead:
+# ln -s /usr/local/bin/greadlink /usr/local/bin/readlink
+
+# http://biercoff.com/readlink-f-unrecognized-option-problem-solution-on-mac/ link to article regarding readlink where I found these fixes found above
+
+# open -na "Rider.app" --args "$@"  # original but didn't open the solution file
+
+PASSED_ARGUMENT=$1
+
+# Not sure if this is needed anymore but doesn't seem to hurt any thing and gets
+# a fully qualified path
+if [ "${PASSED_ARGUMENT}" = "." ];
+then
+  PASSED_ARGUMENT=$(readlink -f "${PASSED_ARGUMENT}")
+fi
+
+if [ -d "${PASSED_ARGUMENT}" ];
+then 
+  SOLUTION=$(find $1 -type f -name "*.sln")
+  open -na "Rider.app" --args ${SOLUTION}
+elif [ -f "${PASSED_ARGUMENT}" ];
+then open -na "Rider.app" --args "$@"
+else echo "${PASSED_ARGUMENT} is not a valid argument for the rider command";
+  exit 1
+fi
