@@ -11,7 +11,7 @@ for me I added these file to:
 ## Change permissions on file to be executable
 once you have added the file to your path, be sure to change the permissions to be executable:
 ```
-chmod 755 {filenam}
+chmod 755 {filename}
 ```
 
 ## Rider Command
@@ -20,7 +20,7 @@ command:
 rider
 ```
 
-The rider command specifically looks for a solution file if a directory has been passed as the arugment
+The rider command specifically looks for a solution file if a directory has been passed as the argument
 
 ### Usages:
 while in the current directory you are trying to open
