@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ehco "Please enter password, for symlinking commands."
+echo "Please enter password, for symlinking commands."
 [ "$UID" -eq 0 ] || exec sudo bash "$0" "$@"
 
 if [[ $(which brew) ]]; then
