@@ -2,20 +2,13 @@
 
 ### NOTE: make sure the applications exist in your applications folder
 
-## Add files to path
-
-for me I added these file to:
-
-```
-/usr/local/bin/{filename}
+### Install Brew (If not installed
+```bash
+cd [jetbrains_commands_location]
 ```
 
-## Change permissions on file to be executable
-
-once you have added the file to your path, be sure to change the permissions to be executable:
-
-```
-chmod 755 {filename}
+```bash
+. ./install.sh
 ```
 
 ## Rider Command
@@ -194,7 +187,7 @@ phpstorm blah
 
 ### install brew if you haven't already
 
-Then do this
+Then do this if not using the install script, the install script takes care of this.
 
 ```
 brew install coreutils
