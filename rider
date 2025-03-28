@@ -14,7 +14,7 @@
 
 # open -na "Rider.app" --args "$@"  # original but didn't open the solution file
 
-PASSED_ARGUMENT=$1
+PASSED_ARGUMENT="${1:-.}"
 
 # Not sure if this is needed anymore but doesn't seem to hurt any thing and gets
 # a fully qualified path
@@ -25,7 +25,7 @@ fi
 
 if [ -d "${PASSED_ARGUMENT}" ];
 then 
-  SOLUTION=$(find $1 -type f -name "*.sln")
+  SOLUTION=$(find $PASSED_ARGUMENT -type f -name "*.sln")
   open -na "Rider.app" --args ${SOLUTION}
 elif [ -f "${PASSED_ARGUMENT}" ];
 then open -na "Rider.app" --args "$@"

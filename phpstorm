@@ -14,7 +14,7 @@
 
 # http://biercoff.com/readlink-f-unrecognized-option-problem-solution-on-mac/ link to article regarding readlink where I found these fixes found above
 
-PASSED_ARGUMENT=$1
+PASSED_ARGUMENT="${1:-.}"
 
 # Not sure if this is needed anymore but doesn't seem to hurt any thing and gets
 # a fully qualified path
